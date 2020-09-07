@@ -5,21 +5,26 @@ import ListItem from '@material-ui/core/ListItem';
 import ListItemText from '@material-ui/core/ListItemText';
 import Paper from '@material-ui/core/Paper';
 
-const DateDisplay = (() => (
+const DateDisplay = ((props) => {
+
+  const splittedDate = props.apiResponse.split('-');
+  return (
+  
   <Paper className="container">
       <List>
           <ListItem>
-          <ListItemText>Day: </ListItemText>
+          <ListItemText>Day: {splittedDate[1]}</ListItemText>
       </ListItem>
       <ListItem>
-          <ListItemText>Month: </ListItemText>
+          <ListItemText>Month: {splittedDate[0]}</ListItemText>
       </ListItem>
       <ListItem>
-          <ListItemText>Year: </ListItemText>
+          <ListItemText>Year: {splittedDate[2]}</ListItemText>
       </ListItem>
       </List>
   </Paper>
-));
+  )}
+);
 
 DateDisplay.propTypes = {
   apiResponse: PropTypes.string

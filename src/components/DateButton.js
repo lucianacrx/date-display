@@ -2,11 +2,11 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import Button from '@material-ui/core/Button';
 
-const DateButton = (() => (
+const DateButton = ((props) => (
   <div className="button-container">
     <Button
       variant="extendedFab"
-      onClick=""
+      onClick={props.onClickButton}
       color="primary">
       Display Date
     </Button>

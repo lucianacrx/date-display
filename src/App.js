@@ -7,21 +7,26 @@ class App extends Component {
   constructor() {
     super();
     this.state= {
-      'apiResponse': ''
+      apiResponse: ''
     };
   }
 
   handleButtonClick = () => {
     API.getAPIResponse().then((res) => {
+      this.setState({apiResponse: res.data.date});
     });
+  }
+
+  getFullDate(date) {
+    return date.split('-');
   }
 
   render() {
     return (
       <div>
         <center><h1>Date API</h1></center>
-        <center><DateButton></DateButton></center>
-        <DateDisplay></DateDisplay>
+        <center><DateButton onClickButton={this.handleButtonClick.bind(this)}></DateButton></center>
+        <DateDisplay apiResponse={this.state.apiResponse}></DateDisplay>
       </div>
     );
   }
