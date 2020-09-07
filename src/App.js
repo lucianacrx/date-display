@@ -13,7 +13,7 @@ class App extends Component {
 
   handleButtonClick = () => {
     API.getAPIResponse().then((res) => {
-      this.setState({apiResponse: res.data.date});
+      this.setState({apiResponse: res.data.date.replace(/(^|-)0+/g, '$1')});
     });
   }
 
